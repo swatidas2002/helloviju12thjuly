@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index2.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <title>Vijayeswari</title>
+</head>
+<body>
+  <script>
+    function stars() {
+      let e = document.createElement('div');
+      e.setAttribute('class', 'star');
+      document.body.appendChild(e);
+      e.style.left = Math.random() * + innerWidth + 'px';
+
+      let size = Math.random() * 12;
+      e.style.fontSize = 12 + size + 'px';
+
+      setTimeout(function(){
+        document.body.removeChild(e);
+      }, 5000)
+    }
+    setInterval(function(){
+      stars()
+    }, 100);
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const spans = document.querySelectorAll(".additional-text span");
+      spans.forEach((span, index) => {
+        span.style.animationDelay = `${index * 3}s`;
+      });
+
+      // Get the audio element
+      const audio = document.getElementById("background-audio");
+
+      // Get the audio controls div
+      const musicButton = document.getElementById("music-button");
+      const playIcon = document.getElementById("play-icon");
+
+      // Toggle play/pause when clicking on the audio controls
+      musicButton.addEventListener("click", function () {
+        if (audio.paused) {
+          audio.play();
+          playIcon.className = "fas fa-pause";
+        } else {
+          audio.pause();
+          playIcon.className = "fas fa-play";
+        }
+      });
+
+      // Start the audio element when the document is loaded
+      audio.play();
+    });
+
+    /*document.addEventListener("DOMContentLoaded", function () {
+      createRaindrops();
+    });
+    
+    function createRaindrops() {
+      const raindropContainer = document.querySelector(".raindrop-container");
+      const numRaindrops = 100; // Number of raindrop images
+    
+      for (let i = 1; i <= numRaindrops; i++) {
+        let raindrop = document.createElement("div");
+        raindrop.setAttribute("class", "raindrop");
+    
+        let img = document.createElement("img");
+        let imgNumber = i % 16 + 1;
+        img.setAttribute("src", `pic${imgNumber}.png`);
+        img.setAttribute("alt", `raindrop${i}`);
+    
+        raindrop.appendChild(img);
+        raindropContainer.appendChild(raindrop);
+    
+        // Set random left position
+        raindrop.style.left = Math.random() * window.innerWidth + "px";
+        raindrop.style.animationDelay = Math.random() + "s";
+    
+        // Adjust the size of raindrops
+        let size = 50; // Default size
+        if (imgNumber === 3 || imgNumber === 6 || imgNumber === 4 || imgNumber === 1 || imgNumber === 2 || imgNumber === 5 || imgNumber === 7 || imgNumber === 8 || imgNumber === 9 || imgNumber === 10 || imgNumber === 11 || imgNumber === 12 || imgNumber === 13 || imgNumber === 14 || imgNumber === 15 || imgNumber === 16) {
+          size = Math.random() * 20 + 30; // Adjust the size of pic3, pic6, and pic4
+        } else {
+          size = Math.random() * 30 + 20;
+        }
+        img.style.width = `${size}px`;
+      }
+    }*/
+  </script>
+  <div class="audio-controls" style="position: fixed; top: 10px; left: 10px; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.8); padding: 10px; border-radius: 10px; cursor: pointer;">
+    <span id="music-button" style="display: flex; align-items: center;">Music : <i id="play-icon" class="fas fa-play" style="margin-left: 5px; margin-right: 10px; font-size: 24px;"></i></span>
+  </div>
+
+  <audio id="background-audio" autoplay loop style="display: none;">
+    <source src="btsaudio.mp3" type="audio/mp3">
+  </audio>
+ 
+  <div class="raindrop-container"></div>
+  <div class="card">
+    <div class="text">
+      <h1>Happy Birthday Vijayeswari !!</h1>
+    </div>
+    <div class="image-container">
+      <img src="./viju.jpeg" alt="birthday" class="birthday">
+      <div class="additional-text" style="padding: 20px;"><br>
+        <!-- Break the quote into two lines -->
+        <span>"In a world full of temporary things,</span><br>
+        <span>you are a perpetual feeling." </span>
+        <span style="display: block; text-align: right;">- Sanober Khan</span>
+      </div>
+    </div>
+    <div class="space"></div>
+  </div>
+</body>
+</html>
